@@ -28,7 +28,7 @@ library(httr)
 library(rjson)
 library(stringr)
 #一个对GET函数进行包装过的获取location的函数
-get_location<-function(address,ak='vfmArqSNrHzo8sB9apyGFFD9OMXN9QIu'){
+get_location<-function(address,ak='your ak'){
   address<-ifelse(str_detect(address,pattern = '杭州'),address,paste0('杭州市',address))%>%str_extract(pattern = '[:alnum:]+')
   html<-GET(url='http://api.map.baidu.com/geocoder/v2/',query=list(ak=ak,output='json',address=address))
   contents<-content(html)
